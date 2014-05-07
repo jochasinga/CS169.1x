@@ -5,13 +5,13 @@ def hello(name)
 end
 
 def starts_with_consonant?(str)
-  /[^aeiou]/i =~ str[0] ? true : false
+  /[a-z&&[^aeiou]]/i =~ str[0] ? true : false
 end
 
 def binary_multiple_of_4?(str)
   l = str.length
   ar  = str.scan /[01]/
-  if ar.length != l
+  if ar.length != l || l <= 0
     return false
   else
     ar.join('').to_i % 4 == 0 ? true : false
